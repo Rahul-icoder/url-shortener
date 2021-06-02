@@ -4,7 +4,7 @@ const UrlModel = require('./models/urlShortenerSchema')
 const path = require("path");
 const ejs = require('ejs')
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 
 app.use(express.static(path.join(__dirname,'/public')))
