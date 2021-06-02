@@ -12,9 +12,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.set('view engine','ejs')
 
-app.get('/',(req,res,next)=>{
-	res.render('index')
-})
+// app.get('/',(req,res,next)=>{
+// 	res.render('index')
+// })
 
 app.post('/',async(req,res,next)=>{
 	try{
@@ -22,7 +22,7 @@ app.post('/',async(req,res,next)=>{
 		if(!url) throw new Error('url not valid')
 		const urlExits = await UrlModel.findOne({url})
 		if(urlExits){
-			res.render('index',{shortUrl:`${req.hostname}/${urlExits.shortUrl}`});
+			res.render('index',{shortUrl:`${req.hostname}/?id=${urlExits.shortUrl}`});
 			return;
 		}
 		const urlModel = new UrlModel({url:url,shortUrl:Date.now()})
@@ -33,9 +33,9 @@ app.post('/',async(req,res,next)=>{
 	}
 })
 
-app.get('/:shortUrl',async(req,res,next)=>{
+app.get('/',async(req,res,next)=>{
 	try{
-		const result = await UrlModel.findOne({shortUrl:`${req.params.shortUrl}`})
+		const result = await UrlModel.findOne({shortUrl:`${req.query.id}`})
 		if(!result) throw new Error('Url is not valid')
 		res.redirect(result.url);
 	}catch(error){
