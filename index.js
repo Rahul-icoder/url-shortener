@@ -22,12 +22,12 @@ app.post('/',async(req,res,next)=>{
 		if(!url) throw new Error('url not valid')
 		const urlExits = await UrlModel.findOne({url})
 		if(urlExits){
-			res.render('index',{shortUrl:`http://localhost:8080/${urlExits.shortUrl}`});
+			res.render('index',{shortUrl:`${req.hostname}/${urlExits.shortUrl}`});
 			return;
 		}
 		const urlModel = new UrlModel({url:url,shortUrl:Date.now()})
 		const result = await urlModel.save();
-		res.render('index',{shortUrl:`http://localhost:8080/${result.shortUrl}`});
+		res.render('index',{shortUrl:`${req.hostname}/${result.shortUrl}`});
 	}catch(error){
 		next(error)
 	}
