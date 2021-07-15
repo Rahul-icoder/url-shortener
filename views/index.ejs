@@ -13,11 +13,12 @@
 	<% } %>	
 	<form action="/" method="post" class="form-container">
 		<input type="url" id="url" name="url" placeholder="url here...">
+		<input type="text" id="slug" name="slug" placeholder="slug here...">
 		<input type="submit" value="create url">
 	</form>
 	<div class="short-url">
 		<% if (locals.shortUrl) { %>
-			<a href="<%= shortUrl %>" target="_blank"><%=shortUrl %></a>
+			<a href="<%= shortUrl %>" target="_blank">http://urlshortnode.herokuapp.com/<%=shortUrl %></a>
 		<% } %>	
 	</div>
 </body>

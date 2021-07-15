@@ -34,6 +34,16 @@ h1{
 	color: #033f42;
 }
 
+.form-container input[type="text"]{
+	padding: 0.8rem;
+	font-size: 1.1rem;
+	outline: none;
+	border: 2px solid #404062;
+	width: 300px;
+	color: #033f42;
+	margin-top: 1rem;
+}
+
 .form-container input[type="submit"]{
 	padding: 0.8rem;
 	font-size: 1.1rem;

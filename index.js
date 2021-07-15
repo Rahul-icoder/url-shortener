@@ -18,14 +18,14 @@ app.get('/',(req,res,next)=>{
 
 app.post('/',async(req,res,next)=>{
 	try{
-		const {url} = req.body
+		const {url,slug} = req.body
 		if(!url) throw new Error('url not valid')
 		const urlExits = await UrlModel.findOne({url})
 		if(urlExits){
 			res.render('index',{shortUrl:`${urlExits.shortUrl}`});
 			return;
 		}
-		const urlModel = new UrlModel({url:url,shortUrl:Date.now()})
+		const urlModel = new UrlModel({url:url,shortUrl:slug})
 		const result = await urlModel.save();
 		res.render('index',{shortUrl:`${result.shortUrl}`});
 	}catch(error){
