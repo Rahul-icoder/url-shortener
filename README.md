@@ -1,12 +1,3 @@
-## **Custom URL SHORTENER**
+## ** URL SHORTENER**
 
-#### start this project.
-
-> First clone the project <br>
-``` git clone https://github.com/Rahul-icoder/url-shortener.git```
-
-> Go to url-shortener folder <br>
-``` cd url-shortener```
-
-> Then npm install  <br>
-``` npm install```
+The URL Shortener is a simple yet powerful service that allows you to shorten long URLs into concise, shareable links. It includes built-in tracking features to monitor the number of clicks each shortened link receives, making it perfect for marketing campaigns, social media sharing, or managing affiliate links. With a clean, easy-to-use interface, you can quickly generate and manage your shortened URLs with ease.
